@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MazeGen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Width="1366" Height="768">
     <Grid>
-        
+        <Menu VerticalAlignment="Top" Margin="0,0,-0.4,0">
+            <MenuItem Header="Fichier">
+                <MenuItem Header="Générer" Click="Gen_Click"/>
+                <MenuItem Header="Configurer" Click="Conf_Click"/>
+                <Separator/>
+                <MenuItem Header="Quitter" Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+        <Image x:Name="img" Margin="0,18,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1360" Height="720"/>
+
     </Grid>
 </Window>

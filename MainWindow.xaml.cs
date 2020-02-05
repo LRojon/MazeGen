@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MazeGen.Class;
 
 namespace MazeGen
 {
@@ -23,6 +24,25 @@ namespace MazeGen
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Gen_Click(object sender, RoutedEventArgs e)
+        {
+            Global.Width = (int)this.img.Width / Global.Conf.CellSize;
+            Global.Height = (int)this.img.Height / Global.Conf.CellSize;
+            Generator.Maze();
+            this.img.Source = Global.ImageSourceFromBitmap(Generator.GetMazeImage());
+        }
+
+        private void Conf_Click(object sender, RoutedEventArgs e)
+        {
+            ConfWindow conf = new ConfWindow();
+            conf.ShowDialog();
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
